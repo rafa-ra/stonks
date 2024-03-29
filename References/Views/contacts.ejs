@@ -1,0 +1,55 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/contact.css">
+    </head>
+            
+
+    <body>
+        <% if (typeof searchQuery !== 'undefined') { %>
+            <%= searchQuery %>
+          <% } else { %>
+            <!-- Code to be executed if searchQuery is undefined -->
+            Variable "searchQuery" is undefined.
+          <% } %>
+        <%- include('../includes/navigation.ejs') %>
+            <main>
+                <div class="search">
+                    <form action="/contacts">
+                        <input type="text" name="search-input" class="search-input" value="<% if (typeof searchQuery !== 'undefined') { %><%= searchQuery %><% } %>">
+                        <button type="submit" class="btn search-btn">Pesquisar</button>
+                    </form>
+                </div>
+                <% if (contacts.length > 0) { %>
+                    <div class="grid">
+                        <% for (let contact of contacts) { %>
+                            <article class="card product-item">
+                                <header class="card__header">
+                                    <h1 class="product__title">
+                                        <%= contact.dataValues.nome %>
+                                    </h1>
+                                </header>
+                                <div class="card__content">
+                                    <% for (let telephone of contact.dataValues.Telefones) { %>
+                                        <h2 class="product__price"><%= telephone.NUMERO %></h2>
+                                    <% } %>                                   
+                                    <h2 >
+                                    </h2>
+                                    <p class="product__description">
+                                    </p>
+                                </div>
+                                <div class="card__actions">
+                                    <a href="/edit-contact/<%= contact.id %>" class="btn">Editar</a>
+                                    <form action="/delete-contact" method="POST">
+                                        <input type="hidden" value="<%= contact.id %>" name="contactId">
+                                        <button type="submit" class="btn">Excluir</button>
+                                    </form>
+                                    </div>
+                            </article>
+                            <% } %>
+                    </div>
+                    <% } else { %>
+                        <h1>Não foram encontrados contatos</h1>
+                        <% } %>
+            </main>
+            
+            <%- include('../includes/end.ejs') %>
+  

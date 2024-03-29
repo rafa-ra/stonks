@@ -1,0 +1,31 @@
+CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username TEXT NOT NULL, hash TEXT NOT NULL, cash NUMERIC NOT NULL DEFAULT 10000.00);
+CREATE TABLE sqlite_sequence(name,seq);
+CREATE UNIQUE INDEX username ON users (username);
+CREATE TABLE transactions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    user_id INTEGER,
+    stock_symbol TEXT,
+    price REAL,
+    shares INTEGER,
+    total REAL, timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP, type VARCHAR(255) NOT NULL DEFAULT 'buy' CHECK (type IN ('buy', 'sell')),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+CREATE TABLE user_stocks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    user_id INTEGER,
+    stock_symbol TEXT,
+    shares INTEGER,
+    stock_price REAL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+apology
+buy
+history
+index
+layout
+login
+quote
+quoted
+register
+sell

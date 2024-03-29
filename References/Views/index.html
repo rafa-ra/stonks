@@ -1,0 +1,34 @@
+{% extends "layout.html" %} {% block title %} Log In {% endblock %} {% block
+main %}
+<h1>My portfolio</h1>
+<table>
+  <thead>
+    <th>Stock</th>
+    <th>Shares</th>
+    <th>Current Price</th>
+    <th>Total</th>
+  </thead>
+  <tbody>
+    {% for stock in userStocks %}
+    <tr>
+      <td>{{ stock['stockSymbol'] }}</td>
+      <td>{{ stock.shares }}</td>
+      <td>{{ stock.currentPrice }}</td>
+      <td>{{ stock.total }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td class="bold">CURRENT CASH BALANCE</td>
+      <td></td>
+      <td></td>
+      <td class="bold">{{userCurrentCashBalance}}</td>
+    </tr>
+    <tr>
+      <td class="bold">TOTAL BALANCE</td>
+      <td></td>
+      <td></td>
+      <td class="bold">{{userTotalBalance}}</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

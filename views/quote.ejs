@@ -1,0 +1,15 @@
+<%- include('includes/navigation.ejs') %>
+<h1 class="page-title">QUOTE STOCKS</h1>
+<div class="content">
+  <form action="/quote" method="post">
+    <input
+      name="symbol"
+      autofocus
+      autocomplete="off"
+      placeholder="Stock"
+      type="text"
+    />
+    <button type="submit">Search</button>
+  </form>
+</div>
+<%- include('includes/end.ejs') %>

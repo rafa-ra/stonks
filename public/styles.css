@@ -1,0 +1,157 @@
+/* Size for brand */
+nav {
+  background-color: #2c3034;
+}
+
+body {
+  background-color: #2c3034c7;
+}
+
+nav .navbar-brand {
+  font-size: xx-large;
+}
+
+nav .navbar-brand .yellow {
+  color: #f5b82e;
+}
+nav .navbar-brand .white {
+  color: #fff;
+}
+
+.navlink {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 10px;
+}
+
+tbody tr:nth-of-type(odd) {
+  background-color: rgb(179, 208, 255, 0.3);
+}
+
+form {
+  min-width: 600px;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="number"] {
+  line-height: 1.8;
+  width: 30%;
+}
+
+input[type="text"]:hover,
+input[type="number"]:hover {
+  background-color: #f5f5f5;
+  transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+button {
+  color: rgb(58, 58, 58);
+  margin-top: -4px;
+  background-color: #f5b82e;
+  width: 206px;
+  height: 35px;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 0.375rem 0.75rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+button:hover {
+  color: black;
+  background-color: #f7ad00;
+}
+
+input {
+  border-radius: 4px;
+  width: 220px;
+  height: 38px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+select {
+  margin-top: -4px;
+  line-height: 1.8;
+  width: 30%;
+  background-color: #fff;
+  border: 1px solid;
+  border-radius: 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0.375rem 0.75rem;
+  text-align: center;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  vertical-align: middle;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 48px;
+}
+
+.page-title {
+  color: #fff;
+  margin: 60px;
+  text-align: center;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+table {
+  background-color: transparent;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.thead {
+  background-color: #ffc107 !important;
+}
+
+table th,
+table td {
+  padding: 0.75rem;
+  vertical-align: middle;
+}
+
+tbody tr:nth-of-type(odd) {
+  background-color: rgb(179, 208, 255, 0.3);
+}
+
+.alert-st {
+  background-color: #f5b82e;
+  line-height: 40px;
+  border-radius: 6px;
+  color: black;
+  width: 100%;
+}
+h3 {
+  text-align: center;
+  color: #f5f5f593;
+  margin-top: -15px;
+  margin-bottom: 35px;
+}
+.presentation-content {
+  margin: auto;
+  text-align: center;
+  color: #fff;
+}
+
+h4 {
+  margin: 20px;
+}
+
+.presentation-content p {
+  margin-bottom: 0;
+}

@@ -1,0 +1,33 @@
+<%- include('includes/navigation.ejs') %>
+<h1 class="page-title">MY PORTFOLIO</h1>
+<table class="table table-striped table-dark">
+  <thead class="thead">
+    <th>STOCK</th>
+    <th>SHARES</th>
+    <th>CURRENT PRICE</th>
+    <th>TOTAL</th>
+  </thead>
+  <tbody>
+    <% for (stock of userStocks){ %>
+    <tr>
+      <td><%= stock.symbol %></td>
+      <td><%= stock.totalShares %></td>
+      <td><%= stock.currentPrice %></td>
+      <td><%= stock.totalWorth %></td>
+    </tr>
+    <% } %>
+    <tr>
+      <td class="bold">CURRENT CASH BALANCE</td>
+      <td></td>
+      <td></td>
+      <td class="bold"><%= userCashBalance %></td>
+    </tr>
+    <tr>
+      <td class="bold">TOTAL BALANCE</td>
+      <td></td>
+      <td></td>
+      <td class="bold"><%= userTotalBalance %></td>
+    </tr>
+  </tbody>
+</table>
+<%- include('includes/end.ejs') %>

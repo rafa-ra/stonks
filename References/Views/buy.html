@@ -1,0 +1,13 @@
+{% block title %} Apology {% endblock %} {% block main %}
+<h1>Buy Stocks</h1>
+<form action="/buy" method="post">
+  <input type="text" name="symbol" placeholder="Ticker" />
+  <input
+    type="number"
+    step="any"
+    name="shares"
+    placeholder="Number of shares"
+  />
+  <button type="submit">Buy Stock</button>
+</form>
+{% endblock %}

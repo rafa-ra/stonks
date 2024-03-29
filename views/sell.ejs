@@ -1,0 +1,22 @@
+<%- include('includes/navigation.ejs') %>
+<h1 class="page-title">SELL STOCKS</h1>
+<div class="content">
+  <form action="/sell" method="post">
+    <select name="symbol">
+      <option disabled selected value="Stock">STOCK</option>
+      <% for (let stock of userStocks){ %>
+      <option value="<%= stock.stock_symbol %>">
+        <%= stock.stock_symbol %>
+      </option>
+      <% } %>
+    </select>
+    <input
+      type="number"
+      step="any"
+      name="shares"
+      placeholder="Number of shares"
+    />
+    <button type="submit">Sell Stock</button>
+  </form>
+</div>
+<%- include('includes/end.ejs') %>

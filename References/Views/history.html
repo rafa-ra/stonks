@@ -1,0 +1,25 @@
+{% extends "layout.html" %} {% block title %} Apology {% endblock %} {% block
+main %}
+<table>
+  <thead>
+    <th>Date</th>
+    <th>Type</th>
+    <th>Stock</th>
+    <th>Price</th>
+    <th>Shares</th>
+    <th>Total</th>
+  </thead>
+  <!-- <tbody>
+    {% for transaction in transactions%}
+    <tr>
+      <td>{{ transaction['timestamp'] }}</td>
+      <td>{{ transaction['type'] }}</td>
+      <td>{{ transaction['stock_symbol'] }}</td>
+      <td>{{ "%.2f"|format(transaction['price']) }}</td>
+      <td>{{ transaction['shares'] }}</td>
+      <td>{{ "%.2f"|format(transaction['total']) }}</td>
+    </tr>
+    {% endfor %}
+  </tbody> -->
+</table>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layout.html" %} {% block title %} Apology {% endblock %} {% block
+main %}
+<table>
+  <thead>
+    <th>Stock</th>
+    <th>Price</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ stockSymbol }}</td>
+      <td>{{ stockPrice }}</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}
