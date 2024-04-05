@@ -34,7 +34,6 @@ exports.postBuy = (req, res, next) => {
       const userInfo = await User.findOne({
         where: { id: userId },
       });
-      console.log();
       const userBalance = userInfo.cash;
 
       //Caso não tiver saldo
@@ -113,9 +112,9 @@ exports.getSell = (req, res, next) => {
 
 exports.postSell = (req, res, next) => {
   const symbol = req.body.symbol;
-  const shares = parseInt(req.body.shares);
-  const orderShares = shares;
+  let orderShares = parseInt(req.body.shares);
   const userId = req.session.user;
+
   (async () => {
     try {
       //Puxar info da request
@@ -148,21 +147,23 @@ exports.postSell = (req, res, next) => {
         //Caso tiver saldo
         //update na user_stocks
         //Loop
-        let shares = orderShares;
 
         const stocks = await UserStocks.findAll({
           where: {
+            user_Id: userId,
             stock_symbol: symbol,
           },
         });
+
+        console.log(stocks);
 
         for (let stock of stocks) {
           const stockId = stock.id;
           const stockQty = stock.shares;
           //  se quantidade da linha < shares
-          if (stockQty <= shares) {
+          if (stockQty <= orderShares) {
             // subtrair de shares
-            shares -= stockQty;
+            orderShares -= stockQty;
             // deletar linha
             await UserStocks.destroy({
               where: {
@@ -171,7 +172,7 @@ exports.postSell = (req, res, next) => {
             });
           } else {
             // subtrair shares da quantidade da linha
-            const finalStockOperation = stockQty - shares;
+            const finalStockOperation = stockQty - orderShares;
             await UserStocks.update(
               { shares: finalStockOperation },
               {
@@ -180,7 +181,7 @@ exports.postSell = (req, res, next) => {
                 },
               }
             );
-            shares = 0;
+            orderShares = 0;
           }
         }
 
@@ -206,7 +207,7 @@ exports.postSell = (req, res, next) => {
           user_id: userId,
           stock_symbol: symbol.toUpperCase(),
           price: price,
-          shares: orderShares,
+          shares: req.body.shares,
           total: orderTotal,
           type: "Sale",
         });
